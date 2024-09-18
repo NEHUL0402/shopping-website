@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {
+    font-family: "azure";
+    background-image: url("hotell.jpg");
+    background-size: cover;
+    font-size: 30px;
+}
+
+header {
+    color: black;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+    size: 100px;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+.links {
+    color: white;
+    text-align: right;
+    text-decoration: blink;
+}
+
+.name {
+    font-family: Cochin;
+    color: white;
+}
+
+body {
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+button {
+    padding: 15px;
+    font-weight: bolder;
+    margin: 15px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+select {
+    width: 175px;
+    height: 35px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border: 2px black solid;
+}
+</style>
+</head>
+<body>
+<div class="name">
+    <fieldset>
+        <legend align="left">Hotel booking</legend>
+        <h1 align="center">HOTEL RESERVATION</h1>
+        <center>
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Enter location</td>
+                    <td>
+                        <select name="" id="location">
+                            <option value="chennai">chennai</option>
+                            <option value="banaras">banaras</option>
+                            <option value="banglore">banglore</option>
+                            <option value="new delhi">new delhi</option>
+                            <option value="mumbai">mumbai</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter hotel name</td>
+                    <td>
+                        <select name="" id="hotel">
+                            <option value="uday palace" selected>uday palace</option>
+                            <option value="taj">taj</option>
+                            <option value="itc bharat">itc bharat</option>
+                            <option value="radison">radison</option>
+                            <option value="lahula">lahula</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Check in Date</td>
+                    <td><input type="date" id="d1" min="2023-09-30" max="2025-01-01"
+                               style="width: 170px;height: 30px; border: 2px black solid;" required></td>
+                </tr>
+                <tr>
+                    <td>Check out Date</td>
+                    <td><input type="date" id="d2" min="2023-09-30" max="2025-01-01"
+                               style="width: 170px;height: 30px; border: 2px black solid;" required></td>
+                </tr>
+                <tr>
+                    <td>Number of guest</td>
+                    <td><input type="number" id="guest"></td>
+                </tr>
+                <tr>
+                    <td>Number of rooms</td>
+                    <td><input type="number" id="room"></td>
+                </tr>
+                <tr>
+                    <td>I am travelling for work</td>
+                    <td align="left"><input type="checkbox" name="travel" id="check" value="yes"
+                                            style="height: 50px;"></td>
+                </tr>
+            </table>
+        </center>
+        <center><button type="submit" id="btn">proceed</button></center>
+    </fieldset>
+</div>
+</body>
+<script>
+    let a = document.getElementById("btn");
+    a.addEventListener('click', validate);
+
+    function validate() {
+        let flag=0;
+        let a1 = document.getElementById('location').value;
+        let b = document.getElementById('hotel').value;
+        let c = document.getElementById('room').value;
+        let d = document.getElementById('guest').value;
+        let e = new Date(document.getElementById('d1').value);
+        let f = new Date(document.getElementById('d2').value);
+
+        if(e>f)
+        {
+            alert('enter valid dates');
+            flag =0;
+        }
+        else
+        {
+            flag=1;
+            if(d <1)
+        {
+            alert('enter the number of guest correctly');
+            flag=0;
+        }
+        else
+        {
+            flag = 1;
+            if(c <1)
+        {
+            alert('enter the number of rooms correctly');
+            flag=0;
+        }
+        else
+        {
+            flag = 1;
+        }
+        }
+        }
+       
+        if(flag==1)
+        {
+            alert("Your booking for hotel " + b + " in " + a1 + " from " + e + " to " +  f + " will be confirmed after payment. " );
+            location.href="payment.html";
+        }
+        
+
+
+    }
+</script>
+</html>

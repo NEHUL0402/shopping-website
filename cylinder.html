@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+  body {
+    font-family: "azure";
+    background-color: black;
+    background-image: url("https://wallpapercave.com/wp/wp12177277.png");
+    background-size: cover;
+  }
+
+  header {
+    color: blue;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+  }
+
+  footer {
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+  }
+
+  .links {
+    color: white;
+    text-align: right;
+    text-decoration: blink;
+  }
+
+  .name {
+    font-family: Cochin;
+    color: white;
+  }
+
+  td {
+    padding: 15px;
+  }
+
+  body {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: x-large;
+    color: white;
+  }
+
+  h1 {
+    color: azure;
+  }
+
+  button {
+    padding: 15px;
+    border-radius: 15px;
+    margin: 80px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <h1 align="center">CYCLINDER BOOKING</h1>
+  <form action="" onsubmit="return validate()">
+    <center>
+      <table>
+        <tr>
+          <td>select your gas provider:</td>
+          <td>
+            <select name="gasprovider" id="a1" required>
+              <option value="">HP GAS</option>
+              <option value="" selected>bharat gas</option>
+              <option value="">indane gas</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>select booking method:</td>
+          <td>
+            <input type="radio" name="booking" id="b1" value="mobile1" onclick="hide()">mobile number
+            <input type="radio" onclick="hide()" value="pass" name="booking" id="b2">passbook number
+          </td>
+        </tr>
+        <tr>
+          <td>mobile number : </td>
+          <td><input type="tel" name="" id="mobile"></td>
+        </tr>
+        <tr>
+          <td>passbook number : </td>
+          <td><input type="tel" name="" id="passbook"></td>
+        </tr>
+      </table>
+    </center>
+    <center><button type="submit">PROCEED</button></center>
+  </form>
+  </body>
+  <script>
+    function hide() {
+      var m = document.getElementById('b1').checked;
+      let m2 = document.getElementById('passbook');
+      let m3 = document.getElementById('mobile');
+      if (m == true) {
+        m2.disabled = true;
+        m3.disabled= false;
+        return true;
+      }
+      var m1 = document.getElementById('b2').checked;
+     
+      if (m1 == true) {
+        m3.disabled = true;
+         m2.disabled = false;
+        return false;
+      }
+    }
+
+    function validate() {
+      var n = document.getElementById('mobile').value;
+      var p = document.getElementById('passbook').value;
+      if (hide() == true) {
+        let x = document.getElementById('mobile').value;
+        if (!x.match(/^[0-9]{10}$/)) {
+          alert('incorrect mobile number');
+          return false;
+        } else {
+          setTimeout(function () {
+            window.location.href = "payment.html";
+          }, 100);
+          return false;
+        }
+      } else {
+        let y = document.getElementById('passbook').value;
+        if (!y.match(/^[0-9]{5}$/)) {
+          alert('incorrect passbook number');
+          return false;
+        } else {
+          setTimeout(function () {
+            window.location.href = "payment.html";
+          }, 100);
+          return false; 
+        }
+      }
+    }
+  </script>
+</html>

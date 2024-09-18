@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body{font-family:"azure";background-color:black;background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuBlLthvA2_JBV_wtjeud6CVFW3siz-_ucVg&usqp=CAU");background-size:cover;font-size: 30px;}
+header{color:blue;text-align:center;padding:5px;margin:10px}
+footer{color:white;text-align:center;padding:5px;margin:10px}
+.links{color:white;text-align:right;text-decoration:blink}
+.name{font-family:Cochin;color:teal;}
+select{
+    width: 160px;
+    height: 30px;
+}
+body{
+    text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+    <header>
+        <form action="" onsubmit="return validate()">
+        <div class="name">
+            
+                    <fieldset>
+                        <legend align="left">Flight Booking</legend>
+                        <h1 align="center">FIND FLIGHTS</h1>
+                        <table border="0" cellpadding="10">
+
+                            <tr>
+                                <td>Select trip</td>
+                                <td><input type="radio" name="trip" value="One Way" id="r1" onclick="hide()" selected>One Way
+                                    <input type="radio" name="trip" value="Round Trip" id="r2" onclick="hide()">Round trip
+                                    </td>
+                                </tr>
+
+                            </tr>
+                            <tr>
+                                <td>Departure city</td>
+                                <td><select name="" id="">
+                                    <option value="">chennai</option>
+                                    <option value="">banaras</option>
+                                    <option value="">banglore</option>
+                                    <option value="">new delhi</option>
+                                    <option value="">mumbai</option>
+                                </select></td></tr>
+
+                            <tr>
+                                <td>Arrival city</td>
+                                <td><select name="" id="">
+                                    <option value="">chennai</option>
+                                    <option value="">banaras</option>
+                                    <option value="">banglore</option>
+                                    <option value="">new delhi</option>
+                                    <option value="">mumbai</option>
+                                </select></td></tr>
+
+                            <tr>
+                                <td>Select Date</td>
+                                <td><input type="date"   id="d1" min="30-09-2023" max="01-01-2025"  style="width: 150px;height: 30px;" required></td>
+                                 <td><input type="date"  id="d2" min="30-09-2023" max="01-01-2025" style="width: 150px;height: 30px;" required></td>
+                            </tr><br>
+
+
+                            <tr>
+                                <td></td>
+                                <td><button type="submit">PROCEED</button></td></tr><br>
+
+                               
+
+
+                            </table></fieldset></form>
+                    </body>
+                    <script>
+                        function hide()
+                        {
+                            let y = document.getElementById('r2').checked;
+                            var x =document.getElementById('d2');
+                            if(y== true)
+                            {
+                               x.disabled = false ;
+                            }
+                            let m = document.getElementById('r1').checked;
+                            
+                            if(m==true)
+                            {
+                                x.disabled = true ;
+                            }
+                        }
+                        function validate()
+                        {
+                            setTimeout(function () {
+            window.location.href = "payment.html";
+          }, 100);
+          return false; 
+                        }
+                    </script>
+                    
+                    </html>

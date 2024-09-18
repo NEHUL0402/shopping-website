@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2874f0;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .order-details {
+            margin: 10px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-details img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .order-details-content {
+            flex: 1;
+            margin-left: 10px;
+            text-align: left;
+        }
+
+        button {
+            background-color: #2874f0;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e60d5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Order Details</h1>
+    </header>
+
+    <section>
+        <h2>Details for Order #123456</h2>
+
+        <div class="order-details">
+            <img src="1.jpeg" alt="Product 1">
+            <div class="order-details-content">
+                <p><strong>Product:</strong> Laptop</p>
+                <p><strong>Order ID:</strong> #123456</p>
+                <p><strong>Total Amount:</strong> &#8377;500000.00</p>
+                <p><strong>Order Date:</strong> 2023-01-01</p>
+                <p><strong>Shipping Address:</strong> vit,vellore</p>
+            </div>
+        </div>
+
+        <button onclick="returnToOrders()">Back to Orders</button>
+    </section>
+
+    <script>
+        function returnToOrders() {
+            // Redirect back to the orders page
+            window.location.href = "order.html";
+        }
+    </script>
+
+</body>
+</html>

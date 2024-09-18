@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body{font-family:"azure";background-size:cover;font-size:32px;background-color:aquamarine;font-weight: bolder;}
+header{color:black;text-align:center;padding:5px;margin:10px;size:100px;}
+footer{color:white;text-align:center;padding:5px;margin:10px}
+.links{color:white;text-align:right;text-decoration:blink}
+.name{font-family:Cochin;color:teal;}
+</style>
+</head>
+<body>
+        <header>
+            <div class="name">
+                
+                        
+                            <h1 align="center">Mobile Bill Payment</h1>
+                            <table border="0" cellpadding="15">
+    
+                                <tr>
+                                    <td rowspan="2" align="left">Enter your Registerd Mobile Number</td>
+                                    <td><input type="tel" maxlength="10" id="number" style="height: 30px;width: 250px;font-weight: bolder;font-size: larger;border: 2px black solid;"></td><tr>
+                                    <td><small><small>Ensure that this is a valid Mobile Number</small></small></td>
+
+                                
+
+                                <tr>
+                                    <td align="left">Select Mobile Operator</td>
+                                    <td><select id="service"  style="height: 50px;width: 180px;font-weight: bolder;font-size: larger;border: 2px black solid;">
+                                        <option name="op" value="Jio">Jio</option>
+                                        <option name="op" value="airtel">Airtel Prepaid</option>
+                                        <option name="op" value="vi">Vi Prepaid</option>
+                                        <option name="op" value="bsnl">BSNL Prepaid</option>
+                                        <option name="op" value="mtnl">MTNL Mumbai Prepaid</option>
+                                        <option name="op" value="mtnld">MTNL Delhi Prepaid</option>
+                                        <option name="op" value="bsnl">BSNL Prepaid</option>
+
+                                    </select>
+    
+                                <tr align="left">
+                                    <td>available Mobile Plan</td>
+                                    <td><b>&#8377;19,</b>   Get 19 GB Data,Valid for 24 hours. No service validity<br>
+                                        <b>&#8377;181,</b> Get 1GB/Day. No service Validity, No outgoing SMS<br>
+                                        <b>&#8377;299,</b> Extra 0.5GB/day with 1.5GB/Day+ Unlimited Local/National Calls+ 100 SMS/Day.<br>
+                                        <b>&#8377;3099, </b> Extra 50GB with with 2GB/Day+Disney+Hotstar Mobile+ Unlimited Calls+ 100 SMS/Day<br>
+                                    </td></tr>
+                                <tr>
+                                    <td align="left">choose any plan </td>
+                                    <td><select name="" id="plans" style="height: 50px;width: 180px;font-weight: bolder;font-size: larger;border: 2px black solid;">
+                                        <option value="19">&#8377;19</option>
+                                        <option value="181">&#8377;181</option>
+                                        <option value="299">&#8377;299</option>
+                                        <option value="3099">&#8377;3099</option>
+                                    </select></td>
+                                </tr>
+    
+                                    
+                               <center>  <button type="submit" id="btn" style="position: absolute;bottom: 100px;padding: 10px;font-weight: bolder;font-size: larger;border: 2px black solid;cursor: pointer;">PROCEED</button></center> <br>
+    
+                                </table>
+                        </body>
+                        <script>
+                            let btn = document.getElementById('btn');
+                            btn.addEventListener( 'click', check );
+                            function check()
+                            {
+                                let service = document.getElementById('service').value;
+                                let plans = document.getElementById('plans').value;
+                                let number = document.getElementById('number').value;
+                                if(!number.match(/^[0-9]{10}$/))
+                                {
+                                    alert('mobile number not correct');
+                                    return false ;
+                                }
+                                else{
+                                       alert("Plan will be activated for you number " + number + " of amount " + plans + " after payment ");
+                                       location.href = 'payment.html';
+                                }
+                            }
+                        </script>
+                        </html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TEST JAVASCRIPT FORM VALIDATION</h1>
+   <form name="reg" method="get" onsubmit="return validate()">
+    <table>
+     <tr>
+            <td>Name<font color="red">*</font></td>
+            <td><input type="text" name="name" id="name" required onclick="write1()" onblur="remove1()"></td>
+            <td id="l1"></td>
+        </tr>
+        <tr>
+               <td>Address</td>
+            <td><input type="text"  id="address" onclick="write2()" onblur="remove2()"></td>
+            <td id="l2"></td>
+        </tr>
+        <tr>
+            <td>Zip Code<font color="red">*</font></td>
+            <td><input type="number"  id="zip_code" required onclick="write4()" onblur="remove4()"></td>
+            <td id="l4"></td>
+        </tr>
+        <tr>
+            <td>country<font color="red">*</font></td>
+            <td><select name="" id="country" required >
+                <option value="">please select...</option>
+                <option value="india">india</option>
+                <option value="pakistan">pakistan</option>
+                <option value="sri lanka">sri lanka</option>
+                <option value="bangladesh">bangladesh</option>
+            </select></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>gender<font color="red">*</font></td>
+            <td><input type="radio" value="male" name="gender"required class="gender">male <input required class="gender" type="radio" value="female" name="gender">female</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>preferences<font color="red">*</font></td>
+            <td><input type="checkbox" name="pref" id=""name="pref">red<input type="checkbox" name="pref" id=""name="pred">green<input type="checkbox" name="pref" id=""name="pref">blue</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>phone<font color="red">*</font></td>
+            <td><input type="tel" name="" id="phone" required onclick="write5()" onblur="remove5()"></td>
+            <td id="l5"></td>
+        </tr>
+        <tr>
+            <td>email<font color="red">*</font></td>
+            <td><input type="email" name="" id="email" required onclick="write6()" onblur="remove6()"></td>
+            <td id="l6"></td>
+        </tr>
+         <tr>
+            <td>password (6-8 characters)<font color="red">*</font></td>
+            <td><input type="password" name="" id="pass"  required onclick="write7()" onblur="remove7(),check1()"> </td>
+            <td id="l7"></td>
+         </tr>
+         <tr>
+            <td>verify password<font color="red">*</font></td>
+            <td><input type="password" name="" id="v_pass"required onblur="check()" onfocus="remove8()"></td>
+            <td id="l8"></td>
+        </tr> 
+          <tr>
+            <td></td>
+            <td><button type="submit">submit</button><button style="margin-left: 15px;" type="reset">reset</button></td>
+          </tr>
+
+    </table>
+   </form>
+</body>
+<script>
+    function check1()
+    {
+        
+        let a = document.getElementById('pass').value;
+        if(a.length<6 || a.length>8)
+            {
+                alert(" password should be in the range of 6-8 characters");
+            }
+    }
+    function check()
+    {
+        let a = document.getElementById('pass').value;
+        let b = document.getElementById('v_pass').value;
+        if(a!=b)
+        {
+            let c = document.getElementById('l8');
+            c.style.color='red';
+            c.innerText='verfied password didnt matched';
+        }
+    }
+    function validate()
+    {
+        let country = document.getElementById('country').value;
+        let gen = document.getElementsByClassName('gender').value;
+        let na = document.reg.name.value;
+        let code = document.getElementById('zip_code').value;
+        let phn = document.getElementById('phone').value;
+        let em =document.getElementById('email').value;
+        let a = document.getElementById('pass').value;
+        let b = document.getElementById('v_pass').value;
+        if(country ==='' || na === '' || gen === '' || code === '' || phn === '' || em === '' || a==='' || b === '' )
+        {
+            alert("please fill all the required fields");
+            return false;
+        }
+        if(!na.match(/^[a-z-A-Z]{5,15}$/))
+        {
+            alert("incorrect name");
+            return false;
+        }
+        if(!code.match(/^\d{6}$/))
+        {
+            alert("incorrect code");
+            return false;
+        }
+        if (!phn.match(/^\d{10}$/)) {
+            alert("incorrect phone number")
+            return false;
+        }
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(!em.match(validRegex))
+        {
+            alert("invalid email");
+            return false;
+        }
+    }
+    function write1()
+    {
+        let a = document.getElementById('l1');
+        a.innerText='please enter your name!';
+        a.style.color='red';
+    }
+    function remove1()
+    {
+        let a = document.getElementById('l1');
+        a.innerText='';
+    }
+    function remove2()
+    {
+        let a = document.getElementById('l2');
+        a.innerText='';
+    }
+    function remove4()
+    {
+        let a = document.getElementById('l4');
+        a.innerText='';
+    }
+    function remove5()
+    {
+        let a = document.getElementById('l5');
+        a.innerText='';
+    }
+    function remove6()
+    {
+        let a = document.getElementById('l6');
+        a.innerText='';
+    }
+    function remove7()
+    {
+        let a = document.getElementById('l7');
+        a.innerText='';
+    }
+    function remove8()
+    {
+        let a = document.getElementById('l8');
+        a.innerText='';
+    }
+    
+    function write2()
+    {
+        let a = document.getElementById('l2');
+        a.innerText='please enter your address!';
+        a.style.color='red';
+    }
+   
+    function write4()
+    {
+        let a = document.getElementById('l4');
+        a.innerText='please enter your zip code!';
+        a.style.color='red';
+    }
+    function write5()
+    {
+        let a = document.getElementById('l5');
+        a.innerText='please enter your phone number!';
+        a.style.color='red';
+    }
+    function write6()
+    {
+        let a = document.getElementById('l6');
+        a.innerText='please enter your email!';
+        a.style.color='red';
+    }
+    function write7()
+    {
+        let a = document.getElementById('l7');
+        a.innerText='please enter your password!';
+        a.style.color='red';
+    }
+</script>
+</html>

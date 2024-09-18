@@ -1,0 +1,17 @@
+header{
+    
+    height: 40px;
+    padding-top: 10px;
+    
+}
+a:link{
+    color: white;
+    text-decoration: none;
+    padding-right: 70px;
+    padding-left: 10px;
+    margin-left: 10px;
+
+}
+.card{
+    background-color: white;
+}

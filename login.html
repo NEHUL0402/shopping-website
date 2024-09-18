@@ -1,0 +1,162 @@
+<!-- FORMS1.HTML -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <style>
+        /* FORMCSS.CSS */
+
+.signin{
+    background-image: url('formbackground.jpeg');
+    background-size: cover;
+}
+.formbox{
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    background-color:blanchedalmond;
+    height: 600px;
+    width: 500px;
+    border-style:groove;
+    border-radius: 25px;
+}
+#head{
+    color: darkorange;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    -webkit-text-stroke: 2px black;
+    font-size:  30px;
+}
+
+label{
+   font-weight: bold;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.details{
+    /* border-style:groove;*/
+    /* border-radius: 25px;  */
+    width:70%;
+    height: 28px;
+}
+
+#button{
+    position: absolute;
+    width:70%;
+    height: 28px;
+    background-color: orange;
+    font-weight: bolder;
+    left: 85px;
+}
+
+#signupform{
+    position: absolute;
+    left: 20px;
+    top: 400px;
+}
+.otherways{
+    position: absolute;
+    top: 450px;
+    left: 150px;
+}
+img{
+    height: 50px;
+    width: 50px;
+    padding: 10px; 
+}
+a:hover{
+    color: red;
+}
+
+.signup{
+    background-image:url('formbackground2.jpeg');
+    background-size: cover;
+}
+
+.box{
+    position: absolute;
+    top: 3%;
+    left: 35%;
+    background-color: white;
+    height: 800px;
+    width: 700px;
+    border-style:groove;
+    border-radius: 25px; 
+}
+.check{
+    position: absolute;
+    left: 105px;
+}
+
+#signupbutton{
+    position: absolute;
+    width:70%;
+    height: 32px;
+    background-color: orange;
+    font-weight: bolder;
+    left: 119px;
+    top:730px;
+}
+#now{
+   position: absolute;
+   top: 780px;
+   left: 105px;
+}
+.imgre{
+    height: 30px;
+    width: auto;
+    border: 2px black solid;
+    padding: 0px;
+}
+    </style>
+</head>
+<body class="signin" onload="Captcha()">
+    <div class="formbox"> 
+        <div id="head">
+        <form action="" method="post">
+            <h1>LOGIN</h1>
+        </div>
+        <div>
+        <pre>
+           <label> EMAIL ::<br> </label>
+            <input id="d1" class="details" type="email" placeholder="enter username" >
+            <br>
+            <label>Password ::<br></label>
+            <input id="d2" class="details" type="password" placeholder="enter password">
+            <br>
+            <label>Captcha ::<br></label>
+            <input id="d3" class="details" type="text" placeholder="enter Captcha" style="width: 180px;"><div style="height: 30px;width: 80px;border: 2px black solid;position: absolute;top: 381px;left: 290px;font-size: 24px;background-color: aliceblue;" id="a1">hello</div><div style="cursor: pointer;position: absolute;top: 381px;left: 370px;" onclick="Captcha()"><img src="reload.png" alt="" class="imgre"></div>
+        </pre>
+        <br>
+        <input id="button" type="submit" value="LOGIN" style="cursor: pointer;">
+        <br>
+        <div id="signupform">
+       <pre>          Not registered ?<a href="signup.html"> Sign up</a></pre>
+        </div>
+        <br>
+        <div class="otherways"><br><p><b>other ways to login:: </b></p><br>
+            <a href="https://accounts.google.com"><img src="gmail.png"></a> <a href="http://wwww.facebook.com"><img src="facebook.png"></a>
+        </div>
+    </div>
+</div>
+</form>
+<script>
+    function Captcha()
+    {
+        let captche1 = "";
+        let str = "1234567890abcdeghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+        for(let i = 0 ;  i  <  5 ; i++ )
+          {
+            var s = Math.floor(Math.random() * str.length);
+            captche1 += str.slice(s,s+1);
+         }
+           document.getElementById('a1').innerText = captche1;
+    }
+</script>
+</body>
+</html>

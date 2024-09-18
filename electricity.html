@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body{font-family:"azure";background-image:url(electricity1.jpeg);background-size:cover;font-size:30px;}
+header{color:black;text-align:center;padding:5px;margin:10px;size:100px;}
+footer{color:white;text-align:center;padding:5px;margin:10px}
+.links{color:white;text-align:right;text-decoration:blink}
+.name{font-family:Cochin;color:black;}
+</style>
+</head>
+<body>
+        <header><form action="" onsubmit="return validate()">
+            <div class="name">
+                
+                        <fieldset>
+                            <legend align="left">Electricity Bill Payment </legend>
+                            <h1 align="center">Electricty Bill</h1>
+                            <table border="0" cellpadding="10">
+    
+    
+                                </tr>
+                                <tr>
+                                    <td>Select State</td>
+                                    <td><select>
+                                        <option name="state" value="Tamil Nadu" >Tamil Nadu Electricity Board</option>
+                                        <option name="state" value="Mumbai">TATA Power,Mumbai</option>
+                                        <option name="state" value="Banglore">Banglore Electricity supply Company</option>
+                                        <option name="state" value="Goa">Goa Electricity Department</option>
+                                    </select>
+    
+                                <tr>
+                                    <td>Select type</td>
+                                    <td><input type="radio" name="paid" value="Prepaid" required>Prepaid Bill Payment
+                                        <input type="radio" name="paid" value="Prepaid" required>Advanced Bill Payment
+                                        <input type="radio" name="paid" value="Prepaid" required>Regular Bill Payment</td></tr>
+
+    
+                                <tr>
+                                    <td>Bill Number: </td>
+                                    <td><input type="number" id="billnumber"></td></tr><br>
+    
+                                    <tr>
+                                        <td>Registerd Mobile Number</td>
+                                        <td><input type="tel" id="number"></td><tr>
+    
+                                    <tr>
+                                        <td><button type="submit">Proceed</button> </td>
+    
+    
+                                </table></fieldset></form>
+                            </body>
+                            <script>
+                              
+                              function validate()
+                              {
+                                let bill = document.getElementById('billnumber').value;
+                              let number = document.getElementById('number').value;
+                             
+                                if(number == '' || bill == '')
+                                {
+                                  alert('please fill all details');
+                                  return false;
+                                }
+                                else
+                                {
+                                  if(!bill.match(/^[0-9]{5}$/))
+                                {
+                                  alert("bill number invalid");
+                                  return false;
+                                }
+                                else
+                                {
+                                  if(!number.match(/^[0-9]{10}$/))
+                                      {
+                                         alert("mobile number invalid");
+                                         return false ;
+                                   }
+                                   else
+                                   {
+                                    setTimeout(function () {
+            window.location.href = "payment.html";
+          }, 100);
+          return false; 
+                                   }
+                                }
+                                }
+                                
+                               
+                                
+                              
+                                
+                                
+                               
+                             
+                              }
+                            </script>
+                            
+                            </html>
